@@ -1,0 +1,35 @@
+{
+  "name": "ts-lib-metric-monitoring",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tetrascience/ts-lib-metric-monitoring.git"
+  },
+  "keywords": [
+    "statsd",
+    "datadog",
+    "telegraf",
+    "metric",
+    "monitoring"
+  ],
+  "author": "Spin Wang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tetrascience/ts-lib-metric-monitoring/issues"
+  },
+  "homepage": "https://github.com/tetrascience/ts-lib-metric-monitoring#readme",
+  "dependencies": {
+    "envalid": "^3.1.1",
+    "hot-shots": "^4.5.0",
+    "joi": "^10.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.3.0",
+    "eslint-config-tetrascience": "github:tetrascience/eslint-config-tetrascience"
+  }
+}
