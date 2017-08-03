@@ -3,11 +3,17 @@
 [![Build Status](https://travis-ci.org/tetrascience/ts-lib-metric-monitoring.svg?branch=master)](https://travis-ci.org/tetrascience/ts-lib-metric-monitoring)
 
 This is a node module that will help you send your application metrics to __*both*__
-* Telegraf's statsD input, which then stores the data in influxdb and can be visualized using grafana. 
+* [Telegraf's statsD input](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/statsd), which then stores the data in influxdb and can be visualized using grafana. 
 For more information, refer to the 
 [metric visualization stack](https://github.com/tetrascience/ts-devops-local-stack/tree/master/metricvisualization)
 * [Datadog agent's statsD server](http://docs.datadoghq.com/guides/dogstatsd/), which will then forward the metric to datadog for our centralized 
 alerting/monitoring for important environments. 
+
+You can read more about [StatsD Metric Types](https://github.com/etsy/statsd/blob/master/docs/metric_types.md) and [StatsD Server](https://github.com/etsy/statsd). 
+
+## todo
+* use callback
+* add close 
 
 ## Usage
 
@@ -70,7 +76,6 @@ client.increment('my_counter', 1, 0.25);
 client.histogram('my_histogram', 42, ['foo', 'bar']);
 
 
-const next = console.log;
 // Sampling, tags and callback are optional and could be used in any combination (DataDog and Telegraf only)
 client.histogram('my_histogram', 42, 0.25); // 25% Sample Rate
 client.histogram('my_histogram', 42, ['tag']); // User-defined tag
