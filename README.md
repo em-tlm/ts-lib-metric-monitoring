@@ -1,5 +1,7 @@
 # ts-lib-metric-monitoring
 
+[![Build Status](https://travis-ci.org/tetrascience/ts-lib-metric-monitoring.svg?branch=master)](https://travis-ci.org/tetrascience/ts-lib-metric-monitoring)
+
 This is a node module that will help you send your application metrics to __*both*__
 * Telegraf's statsD input, which then stores the data in influxdb and can be visualized using grafana. 
 For more information, refer to the 
