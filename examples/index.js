@@ -10,4 +10,4 @@ const tsMetric = new TsMetric({
 });
 tsMetric.check('end to end test A', tsMetric.CHECKS.OK);
 
-setInterval(tsMetric.increment.bind(tsMetric,['user download']),2000);
+setInterval(tsMetric.increment.bind(tsMetric, ['user download']), 2000);

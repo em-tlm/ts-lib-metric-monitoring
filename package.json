@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/tetrascience/ts-lib-metric-monitoring#readme",
   "dependencies": {
+    "code": "^4.1.0",
     "envalid": "^3.1.1",
     "hot-shots": "^4.5.0",
     "joi": "^10.6.0"
