@@ -1,10 +1,10 @@
 # ts-lib-metric-monitoring
 
 This is a node module that will help you send your application metrics to __*both*__
-* telegraf's statsD input, which then stores the data in influxdb and can be visualized using grafana. 
+* Telegraf's statsD input, which then stores the data in influxdb and can be visualized using grafana. 
 For more information, refer to the 
 [metric visualization stack](https://github.com/tetrascience/ts-devops-local-stack/tree/master/metricvisualization)
-* datadog agent's statsD server, which will then forward the metric to datadog for our centralized 
+* [Datadog agent's statsD server](http://docs.datadoghq.com/guides/dogstatsd/), which will then forward the metric to datadog for our centralized 
 alerting/monitoring for important environments. 
 
 ## Usage
