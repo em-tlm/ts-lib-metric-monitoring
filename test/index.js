@@ -4,12 +4,8 @@ const TsMetric = require('../lib/index');
 
 describe('lib/index', function() {
   it('can not create the tsMetric without improper input', function(done) {
-    expect(() => new TsMetric()).to.throw();
     expect(() => new TsMetric({
-      datadogStatsdHost: 'localhost',
-    })).to.throw();
-    expect(() => new TsMetric({
-      telegrafStatsdHost: 'localhost',
+      globalTags: ['tag1', 'tag2'],
     })).to.throw();
     expect(() => new TsMetric({
       datadogStatsdHost: 'localhost',
@@ -25,6 +21,12 @@ describe('lib/index', function() {
   });
 
   it('can create the tsMetric instance with proper input', function(done) {
+    expect(() => new TsMetric({
+      datadogStatsdHost: 'localhost',
+    })).to.not.throw();
+    expect(() => new TsMetric({
+      telegrafStatsdHost: 'localhost',
+    })).to.not.throw();
     expect(() => new TsMetric({
       datadogStatsdHost: 'localhost',
       telegrafStatsdHost: 'localhost',

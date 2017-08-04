@@ -26,7 +26,7 @@ It implements all the methods included in [hot-shots](https://github.com/brightc
 with some simplifications:
 
 #### Simplication
-> `close` and `socket` are not suppored yet. 
+> `close` and `socket` are not supported yet. 
 > `callback` is not supported yet. 
 
 ```js
@@ -96,11 +96,11 @@ __Parameters__
 
 * `options`: _(optional)_ an object with the following keys:
 
-  + `datadogStatsdHost`: _(required)_ Hostname or IP of the Datadog StatsD server. 
+  + `datadogStatsdHost`: _(optional)_ Hostname or IP of the Datadog StatsD server. Required if `telegrafStatsdHost` is missing.
 
   + `datadogStatsdPort`: _(optional)_ Port of the Datadog StatsD server with `default: 8125`.
   
-  + `telegrafStatsdHost`: _(required)_ Hostname or IP of the Telegraf StatsD server.
+  + `telegrafStatsdHost`: _(optional)_ Hostname or IP of the Telegraf StatsD server. Required if `datadogStatsdHost` is missing.
   
   + `telegrafStatsdPort`: _(optional)_ Port of the Telegraf StatsD server with `default: 8125`.
 
@@ -116,11 +116,12 @@ __Parameters__
 The APIs are exactly the same as [hot-shots](https://github.com/brightcove/hot-shots).
 [Simplications](#Simplication) are described earlier. 
 
-The following will only send metric to Datadog StatsD server
+The following will only send metric to Datadog StatsD server. These are defined only if you pass in `datadogStatsdHost`.
 * `tsMetric.check`
 * `tsMetric.event`
+> These are defined only if you pass in `datadogStatsdHost`.
 
-The following will send metric to both Datadog StatsD and Telegraf StatsD server. 
+The following will send metric to both Datadog StatsD and Telegraf StatsD server.
 * `tsMetric.increment`
 * `tsMetric.decrement`
 * `tsMetric.guage`

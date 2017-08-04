@@ -1,13 +1,11 @@
 const TsMetric = require('../lib');
 const tsMetric = new TsMetric({
   globalTags: [
-    'local',
-    'multi',
-    'file'
+    'local', // ENV
+    'multi', // TENANT
+    'file',  // SERVICE_NAME
   ],
-  datadogStatsdHost: 'localhost',
   telegrafStatsdHost: 'localhost',
 });
-tsMetric.check('end to end test A', tsMetric.CHECKS.OK);
 
 setInterval(tsMetric.increment.bind(tsMetric, ['user download']), 2000);
