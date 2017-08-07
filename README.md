@@ -8,9 +8,10 @@ and can be visualized using [Grafana](https://grafana.com/).
 For more information, refer to the 
 [metric visualization stack](https://github.com/tetrascience/ts-devops-local-stack/tree/master/metricvisualization)
 * [Datadog agent's statsD server](http://docs.datadoghq.com/guides/dogstatsd/), which will then forward the metric to datadog for our centralized 
-alerting/monitoring for important environments. 
+alerting/monitoring for important environments. For example, you can write end to end test and then report success/failure to the Datadog using `check`.
 
 You can read more about [StatsD Metric Types](https://github.com/etsy/statsd/blob/master/docs/metric_types.md) and [StatsD Server](https://github.com/etsy/statsd). 
+
 
 ## todo
 * use callback
@@ -47,12 +48,14 @@ client.timing('response_time', 42);
 
 // Increment: Increments a stat by a value (default is 1)
 client.increment('my_counter');
-
+// Incrementing multiple items
+client.increment(['these', 'are', 'different', 'stats']);
+// Sampling, this will sample 25% of the time the StatsD Daemon will compensate for sampling
+client.increment('my_counter', 1, 0.25);
 // Decrement: Decrements a stat by a value (default is -1)
 client.decrement('my_counter');
 
-// Histogram: send data for histogram stat (DataDog and Telegraf only)
-client.histogram('my_histogram', 42);
+
 
 // Gauge: Gauge a stat by a specified amount
 client.gauge('my_gauge', 123.45);
@@ -65,18 +68,15 @@ client.unique('my_unique', 'foobarbaz');
 client.event('my_title', 'description');
 
 // Check: sends a service check (DataDog only)
-client.check('service.up', client.CHECKS.OK, { hostname: 'host-1' }, ['foo', 'bar'])
+client.check('e2e.labmonitoring', client.CHECKS.OK, { hostname: 'host-1' }, ['foo', 'bar'])
+client.check('e2e.utilization', client.CHECKS.OK, { hostname: 'host-1' }, ['foo', 'bar'])
 
-// Incrementing multiple items
-client.increment(['these', 'are', 'different', 'stats']);
 
-// Sampling, this will sample 25% of the time the StatsD Daemon will compensate for sampling
-client.increment('my_counter', 1, 0.25);
 
+// Histogram: send data for histogram stat (DataDog and Telegraf only)
+client.histogram('my_histogram', 42);
 // Tags, this will add user-defined tags to the data (DataDog and Telegraf only)
 client.histogram('my_histogram', 42, ['foo', 'bar']);
-
-
 // Sampling, tags and callback are optional and could be used in any combination (DataDog and Telegraf only)
 client.histogram('my_histogram', 42, 0.25); // 25% Sample Rate
 client.histogram('my_histogram', 42, ['tag']); // User-defined tag
