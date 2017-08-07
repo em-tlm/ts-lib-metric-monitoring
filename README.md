@@ -3,7 +3,8 @@
 [![Build Status](https://travis-ci.org/tetrascience/ts-lib-metric-monitoring.svg?branch=master)](https://travis-ci.org/tetrascience/ts-lib-metric-monitoring)
 
 This is a node module that will help you send your application metrics to __*both*__
-* [Telegraf's statsD input](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/statsd), which then stores the data in influxdb and can be visualized using grafana. 
+* [Telegraf's statsD input](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/statsd), which then stores the data in [Influxdb](https://www.influxdata.com/) 
+and can be visualized using [Grafana](https://grafana.com/). 
 For more information, refer to the 
 [metric visualization stack](https://github.com/tetrascience/ts-devops-local-stack/tree/master/metricvisualization)
 * [Datadog agent's statsD server](http://docs.datadoghq.com/guides/dogstatsd/), which will then forward the metric to datadog for our centralized 
@@ -112,7 +113,7 @@ __Parameters__
 
   + `sampleRate`: _(optional)_ Sends only a sample of data to StatsD for all StatsD methods.  Can be overriden at the method level. `default: 1`.
 
-### Other APIs
+### `Other APIs`
 The APIs are exactly the same as [hot-shots](https://github.com/brightcove/hot-shots).
 [Simplications](#Simplication) are described earlier. 
 
