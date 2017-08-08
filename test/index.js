@@ -9,11 +9,6 @@ describe('lib/index', function() {
     })).to.throw();
     expect(() => new TsMetric({
       datadogStatsdHost: 'localhost',
-      telegrafStatsdHost: 'localhost',
-      globalTags: [1, 2, 4],
-    })).to.throw();
-    expect(() => new TsMetric({
-      datadogStatsdHost: 'localhost',
       datadogStatsdPort: 'abd',
       telegrafStatsdHost: 'localhost',
     })).to.throw();
@@ -35,6 +30,11 @@ describe('lib/index', function() {
       datadogStatsdHost: 'localhost',
       datadogStatsdPort: '1234',
       telegrafStatsdHost: 'localhost',
+    })).to.not.throw();
+    expect(() => new TsMetric({
+      datadogStatsdHost: 'localhost',
+      telegrafStatsdHost: 'localhost',
+      globalTags: [1, 2, 4],
     })).to.not.throw();
     done();
   });

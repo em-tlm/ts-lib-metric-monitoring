@@ -33,11 +33,12 @@ with some simplifications:
 
 ```js
 const TsMetric = require('ts-lib-metric-monitoring');
+const config = require('./config.js');
 const client = new TsMetric({
   globalTags: [
-    process.env.SERVICE_NAME,
-    process.env.TENANT,
-    process.env.ENV
+    config.SERVICE_NAME,
+    config.TENANT,
+    config.ENV,
   ],
   datadogStatsdHost: 'datadog-agent',
   telegrafStatsdHost: 'telegraf', 
