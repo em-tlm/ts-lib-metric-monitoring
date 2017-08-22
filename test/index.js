@@ -51,4 +51,15 @@ describe('lib/index', function() {
     expect(tsMetric.telegrafStatsdPort).to.equal(1234);
     done();
   });
+
+  it('can create the tsMetric instance with proper defaults', function(done) {
+    const tsMetric = new TsMetric({
+      datadogStatsdHost: 'localhost',
+      telegrafStatsdHost: 'localhost',
+    });
+    expect(tsMetric.globalTags).to.have.equal([]);
+    expect(tsMetric.telegrafStatsdPort).to.equal(8125);
+    expect(tsMetric.datadogStatsdPort).to.equal(8125);
+    done();
+  });
 });
