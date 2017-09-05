@@ -10,3 +10,4 @@ const tsMetric = new TsMetric({
 
 tsMetric.increment.apply(tsMetric, ['user download']);
 setInterval(tsMetric.increment.bind(tsMetric, ['user download']), 2000);
+setInterval(() => console.log('sending metrics'), 2000);
